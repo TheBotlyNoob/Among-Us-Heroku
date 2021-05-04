@@ -30,7 +30,7 @@ find $BUILD_DIR -delete
 
 mkdir -p $BUILD_DIR/bin/Server/plugins
 
-if [ ! -z "${PLUGIN_URL}" ]; then
+if [ "${PLUGIN_URL+1}" ]; then
     echo "-----> Installing Plugins..."
     wget -q "$PLUGIN_URL" -P $BUILD_DIR/bin/Server
     file="$BUILD_DIR/bin/Server/$(basename "$PLUGIN_URL")"

@@ -1,19 +1,32 @@
 {
   "name": "Among Us Heroku Server",
+  
   "description": "Make An Among Us Server In Heroku!",
+
   "repository": "https://github.com/TheBotlyNoob/AUCE-Buildpack",
+
   "logo": "https://cdn.discordapp.com/emojis/780994458816610325.png?v=1",
+
   "keywords": [
-  "Among Us",
-  "AU",
-  "Among Us Game",
-  "Among Us Server",
-  "Among Us Server Heroku"
+    "Among Us",
+    "AU",
+    "Among Us Game",
+    "Among Us Server",
+    "Among Us Server Heroku"
   ],
-    "buildpacks": [
-      {
-        "url": "https://github.com/TheBotlyNoob/Among-Us-Heroku"
-      }
-    ],
+
+  "buildpacks": [
+    {
+      "url": "https://github.com/TheBotlyNoob/Among-Us-Heroku"
+    }
+  ],
+
+  "env": {
+    "Plugin URL": {
+      "description": "A URL With The Download Link For Impostor Plugins, If You Would Like To Use Multiple Plugins Tar Them And Put The Download Link Here!",
+      "required": false
+    }
+  },
+
   "stack": "heroku-20"
 }

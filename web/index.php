@@ -16,14 +16,14 @@
 <h3 id="tunnelurl"><?php try {
     $url = json_decode(file_get_contents(__DIR__."/../.config/playit/config.json")) ?? false;
     if ($url !== false) {
-        $url = "https://playit.gg/claim/v3/$url->agent_key";
+        $url = "https://playit.gg/claim/v3/{$url->agent_key}";
         echo ("Your URL Is: \n<a target='_blank' rel='noopener noreferrer' href='{$url}'>{$url}</a>");
     }
     else {
-        echo ("The URL File Doesn't Seem To Exist,\n<br>\nTry Deploying Again, If It Still Doesn't Work Then Make An Issue At \n<a target='_blank' rel='noopener noreferrer' href='https://github.com/TheBotlyNoob/Among-Us-Heroku/issues/new'>The GitHub Page</a>");
+        echo ("The URL File Doesn't Seem To Exist,\n<br>\nTry Deploying Again, If It Still Doesn't Work Then Make An Issue At\n<a target='_blank' rel='noopener noreferrer' href='https://github.com/TheBotlyNoob/Among-Us-Heroku/issues/new'>The GitHub Page</a>");
     }
 } catch(Exception $e) {
-    echo("{$e->getMessage()},\n<br>\nTry Deploying Again, If It Still Doesn't Work Then Make An Issue At <a target='_blank' rel='noopener noreferrer' href='https://github.com/TheBotlyNoob/Among-Us-Heroku/issues/new'>The GitHub Page</a>");
+    echo("{$e->getMessage()}\n<br>\nTry Deploying Again, If It Still Doesn't Work Then Make An Issue At <a target='_blank' rel='noopener noreferrer' href='https://github.com/TheBotlyNoob/Among-Us-Heroku/issues/new'>The GitHub Page</a>");
 }
 ?>
 </h>
