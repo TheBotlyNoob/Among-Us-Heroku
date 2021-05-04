@@ -68,7 +68,6 @@ EOF
 for DEB in $(ls -1 $CACHE_DIR/apt/cache/archives/*.deb);do dpkg -x $DEB $BUILD_DIR/.apt/;done
 
 #Give files execution permissions
-curl -sSL "https://playit.gg/downloads/playit-linux_64-0.3.8" -o $BUILD_DIR/bin/proxy
 cp -R $OPT_DIR/. $BUILD_DIR/bin/
 cp -R $BP_DIR/../web/. $BUILD_DIR/bin/
 
