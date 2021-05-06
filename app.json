@@ -3,7 +3,7 @@
   
   "description": "Make An Among Us Server In Heroku!",
 
-  "repository": "https://github.com/TheBotlyNoob/AUCE-Buildpack",
+  "repository": "https://github.com/TheBotlyNoob/Among-Us-Heroku",
 
   "logo": "https://cdn.discordapp.com/emojis/780994458816610325.png?v=1",
 
@@ -17,7 +17,7 @@
 
   "buildpacks": [
     {
-      "url": "https://github.com/TheBotlyNoob/Among-Us-Heroku"
+      "url": "https://github.com/TheBotlyNoob/Among-Us-Heroku.git"
     }
   ],
 

@@ -1,6 +1,6 @@
 # ***Heroku [Among Us](https://innersloth.com/gameAmongUs.php) Buildpack***
 
-## *Version: 0.1*
+## *Version: 0.10*
 
 This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) for running a [Imposter server](https://github.com/Impostor/Impostor) in a [dyno](https://devcenter.heroku.com/articles/dynos) using [PlayIt](https://playit.gg) .
 
