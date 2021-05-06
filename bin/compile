@@ -32,13 +32,18 @@ mkdir -p $BUILD_DIR/bin/Server/plugins
 
 if [ "${PLUGIN_URL+1}" ]; then
     echo "-----> Installing Plugins..."
+    dest="${BUILD_DIR}/bin/Server"
     wget -q "$PLUGIN_URL" -P $BUILD_DIR/bin/Server
-    file="$BUILD_DIR/bin/Server/$(basename "$PLUGIN_URL")"
+    file="$dest/$(basename "$PLUGIN_URL")"
     extension="${file##*.}"
     if [ "$extension" = "gz" ];then
         tar -xf $file --strip-components=1 -C $BUILD_DIR/bin/Server
     elif [ "$extension" = "zip" ];then
-        unzip -qj $file -d $BUILD_DIR/bin/Server
+        unzip -qo $file -d $BUILD_DIR/bin/Server
+        unzip -d "$dest" "$file" 
+        f=("$dest"/*) 
+        mv "$dest"/*/* "$dest" 
+        rmdir "${f[@]}"
     else
         mv $file $BUILD_DIR/bin/Server/plugins/$file
     fi
