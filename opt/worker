@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+
+echo "Starting: The Reverse Proxy"
+$DIR/proxy &
+proxy_pid=$!
+sleep 5
+
+echo "Starting: The Server At Port 22023..."
+tar -zxf $DIR/dotnet.tar.gz -C $DIR/
+tar -zxf $DIR/Server.tar.gz -C $DIR/
+chmod +x $DIR/Server/Impostor.Server
+$DIR/Server/Impostor.Server &
+main_pid=$!
+sleep 2
+
+trap "kill $main_pid $proxy_pid" SIGTERM
+trap "kill -9 $main_pid $proxy_pid; exit" SIGKILL
