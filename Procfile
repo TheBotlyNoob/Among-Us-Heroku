@@ -1,2 +1,2 @@
-web: bin/run $PORT
+web: bin/web $PORT
 worker: bin/worker
