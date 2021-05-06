@@ -9,6 +9,5 @@ $DIR/proxy &
 
 echo "Starting: The Server At Port 22023..."
 tar -zxf $DIR/dotnet.tar.gz -C $DIR/
-tar -zxf $DIR/Server.tar.gz -C $DIR/
 chmod +x $DIR/Server/Impostor.Server
 $DIR/Server/Impostor.Server

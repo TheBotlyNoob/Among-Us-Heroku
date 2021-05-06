@@ -38,7 +38,7 @@ if [ "${PLUGIN_URL+1}" ]; then
     if [ "$extension" = "gz" ];then
         tar -xf $file --strip-components=1 -C $BUILD_DIR/bin/Server
     elif [ "$extension" = "zip" ];then
-        unzip $file -d $BUILD_DIR/bin/Server
+        unzip -q $file -d $BUILD_DIR/bin/Server
     else
         mv $file $BUILD_DIR/bin/Server/plugins/$file
     fi

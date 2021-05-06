@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Impostor.Server</name>
+    </assembly>
+    <members>
+        <member name="M:Impostor.Server.Events.EventManager.RegisterListener``1(``0,System.Func{System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.IsRegistered``1">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.CallAsync``1(``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Events.EventManager.GetHandlers``1">
+            <summary>
+                Get all the event listeners for the given event type.
+            </summary>
+            <returns>The event listeners.</returns>
+        </member>
+        <member name="T:Impostor.Server.Events.MultiDisposable">
+            <summary>
+                Disposes multiple <see cref="T:System.IDisposable" />.
+            </summary>
+        </member>
+        <member name="M:Impostor.Server.TypeExtensions.GetFriendlyName(System.Type)">
+            <summary>
+                Get the friendly name for the type.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The friendly name.</returns>
+        </member>
+        <member name="M:Impostor.Server.TypeExtensions.GetFriendlyName(System.Reflection.MethodBase,System.Boolean)">
+            <summary>
+                Get the friendly name for the method.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="showParameters">True if the parameters should be included in the name.</param>
+            <returns>Friendly name of the method.</returns>
+        </member>
+        <member name="M:Impostor.Server.Net.Client.OnRequestGameListAsync(Impostor.Api.Innersloth.GameOptionsData)">
+            <summary>
+                Triggered when the connected client requests the game listing.
+            </summary>
+            <param name="options">
+                All options given.
+                At this moment, the client can only specify the map, impostor count and chat language.
+            </param>
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Client">
+            <inheritdoc />
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Game">
+            <inheritdoc />
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Impostor#Api#Net#IClientPlayer#Character">
+            <inheritdoc />
+        </member>
+        <member name="P:Impostor.Server.Net.State.ClientPlayer.Limbo">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Net.State.ClientPlayer.IsOwner(Impostor.Api.Net.Inner.IInnerNetObject)">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Net.State.ClientPlayer.KickAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:Impostor.Server.Net.State.ClientPlayer.BanAsync">
+            <inheritdoc />
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.InvalidClient">
+            <summary>
+                Used for global object, spawned by the host.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Net.State.Game.CurrentClient">
+            <summary>
+                Used internally to set the OwnerId to the current ClientId.
+                i.e: <code>ownerId = ownerId == -3 ? this.ClientId : ownerId;</code>
+            </summary>
+        </member>
+        <member name="T:Impostor.Server.Net.State.GameNet">
+            <inheritdoc />
+        </member>
+        <member name="T:Impostor.Server.Recorder.PacketRecorder">
+            <summary>
+                Records all packets received in <see cref="M:Impostor.Server.Recorder.ClientRecorder.HandleMessageAsync(Impostor.Api.Net.Messages.IMessageReader,Impostor.Api.Net.Messages.MessageType)" />.
+            </summary>
+        </member>
+        <member name="T:Impostor.Server.Recorder.ServerReplayVersion">
+            <summary>
+                Version of the server replay data format.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Recorder.ServerReplayVersion.Initial">
+            <summary>
+                Initial version.
+            </summary>
+        </member>
+        <member name="F:Impostor.Server.Recorder.ServerReplayVersion.Latest">
+            <summary>
+                Latest version.
+            </summary>
+        </member>
+    </members>
+</doc>
