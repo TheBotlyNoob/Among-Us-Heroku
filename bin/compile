@@ -28,11 +28,11 @@ export_env_dir $3
 
 find $BUILD_DIR -delete
 
-mkdir -p $BUILD_DIR/bin/Server/plugins
+mkdir -p $BP_DIR/opt/Server/plugins
 
 if [ "${PLUGIN_URL+1}" ]; then
     echo "-----> Installing Plugins..."
-    dest="${BP_DIR}/bin/Server"
+    dest="${BP_DIR}/opt/Server"
     wget -q "$PLUGIN_URL" -P $dest
     file="$dest/$(basename "$PLUGIN_URL")"
     extension="${file##*.}"
