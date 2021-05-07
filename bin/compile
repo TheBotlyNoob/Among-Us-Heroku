@@ -37,7 +37,7 @@ if [[ -n ${PLUGIN_URL+x} ]]; then
     file="$dest/$(basename "$PLUGIN_URL")"
     extension="${file##*.}"
     if [[ "$extension" = "gz" ]];then
-        tar -xf $file --strip-components=1 -C $dest
+        tar -xf "$file" --strip-components=1 -C "$dest"
     else
         mv "$file" "$dest/plugins/$(basename "$file")"
     fi
