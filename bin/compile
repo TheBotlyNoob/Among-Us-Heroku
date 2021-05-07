@@ -11,7 +11,7 @@ export_env_dir() {
   env_dir=$1
   whitelist_regex=${2:-''}
   blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH|JAVA_OPTS)$'}
-  if [ -d "$env_dir" ]; then
+  if [[ -d "$env_dir" ]]; then
     for e in $(ls $env_dir); do
       echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
       export "$e=$(cat $env_dir/$e)"
@@ -30,19 +30,21 @@ find $BUILD_DIR -delete
 
 mkdir -p $BP_DIR/opt/Server
 
-if [ "${PLUGIN_URL+1}" ]; then
+if [[ -n ${PLUGIN_URL+x} ]]; then
     echo "-----> Installing Plugins..."
     dest="${BP_DIR}/opt/Server"
     wget -q "$PLUGIN_URL" -P $dest
     file="$dest/$(basename "$PLUGIN_URL")"
     extension="${file##*.}"
-    if [ "$extension" = "gz" ];then
+    if [[ "$extension" = "gz" ]];then
         tar -xf $file --strip-components=1 -C $dest
-    elif [ "$extension" = "zip" ];then
-        unzip -qo $file -d $dest
-        mv "${file%.*}"/* "$dest"/
+    elif [[ "$extension" = "zip" ]];then
+        unzip -d "$dest" "$file" 
+        f=("$dest"/*) 
+        mv "$dest"/*/* "$dest" 
+        rmdir "${f[@]}"
     else
-        mv $file $dest/plugins/$(basename "$file")
+        mv "$file" "$dest/plugins/$(basename "$file")"
     fi
 fi
 
