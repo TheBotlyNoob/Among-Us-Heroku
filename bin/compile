@@ -40,7 +40,7 @@ if [[ -n ${PLUGIN_URL+x} ]]; then
         tar -xf $file --strip-components=1 -C $dest
     elif [[ "$extension" = "zip" ]];then
         unzip -d "$dest" "$file" 
-        f=("$dest"/*) 
+        f=("$dest"/*/) 
         mv "$dest"/*/* "$dest" 
         rmdir "${f[@]}"
     else
