@@ -40,6 +40,7 @@ if [ "${PLUGIN_URL+1}" ]; then
         tar -xf $file --strip-components=1 -C $dest
     elif [ "$extension" = "zip" ];then
         unzip -qo $file -d $dest
+        ls -la "${file%.*}/*"
         mv "${file%.*}/*" "$dest"
     else
         mv $file $dest/plugins/$(basename "$file")
