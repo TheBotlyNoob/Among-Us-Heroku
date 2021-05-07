@@ -36,14 +36,13 @@ if [ "${PLUGIN_URL+1}" ]; then
     wget -q "$PLUGIN_URL" -P $dest
     file="$dest/$(basename "$PLUGIN_URL")"
     extension="${file##*.}"
-    baseFile=$(basename "$file")
     if [ "$extension" = "gz" ];then
         tar -xf $file --strip-components=1 -C $dest
     elif [ "$extension" = "zip" ];then
         unzip -qo $file -d $dest
-        mv "${baseFile%.*}/*" "$dest"
+        mv "${file%.*}/*" "$dest"
     else
-        mv $file $dest/plugins/$baseFile
+        mv $file $dest/plugins/$(basename "$file")
     fi
 fi
 
