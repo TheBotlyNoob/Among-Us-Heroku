@@ -2,6 +2,8 @@
 
 set -e
 
+node
+
 port=${PORT:-80}
 
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
@@ -10,5 +12,3 @@ echo "Starting: The Web Server"
 tar -zxf $DIR/php.tar.gz -C $DIR/
 chmod +x $DIR/php/bin/php
 php -S 0.0.0.0:$PORT -t $DIR > /dev/null
-
-node
