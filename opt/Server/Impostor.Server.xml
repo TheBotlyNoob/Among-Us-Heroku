@@ -19,11 +19,6 @@
             </summary>
             <returns>The event listeners.</returns>
         </member>
-        <member name="T:Impostor.Server.Events.MultiDisposable">
-            <summary>
-                Disposes multiple <see cref="T:System.IDisposable" />.
-            </summary>
-        </member>
         <member name="M:Impostor.Server.TypeExtensions.GetFriendlyName(System.Type)">
             <summary>
                 Get the friendly name for the type.

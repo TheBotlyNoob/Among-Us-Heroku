@@ -54,6 +54,16 @@
                 Gets or sets a value indicating whether the listener will be called regardless of the <see cref="P:Impostor.Api.Events.IEventCancelable.IsCancelled" />.
             </summary>
         </member>
+        <member name="T:Impostor.Api.Events.Client.IClientConnectedEvent">
+            <summary>
+                Called just after a <see cref="T:Impostor.Api.Net.IClient"/> is created and connected.
+            </summary>
+        </member>
+        <member name="T:Impostor.Api.Events.Client.IClientConnectionEvent">
+            <summary>
+                Called just before a <see cref="T:Impostor.Api.Net.IHazelConnection"/> is registered.
+            </summary>
+        </member>
         <member name="T:Impostor.Api.Events.IGameCreatedEvent">
             <summary>
                 Called whenever a new <see cref="T:Impostor.Api.Games.IGame" /> is created.
@@ -88,6 +98,11 @@
                 Gets the <see cref="T:Impostor.Api.Games.IGame" /> this event belongs to.
             </summary>
         </member>
+        <member name="T:Impostor.Api.Events.IGamePlayerJoiningEvent">
+            <summary>
+                Called just before a <see cref="T:Impostor.Api.Net.IClientPlayer"/> joins a game.
+            </summary>
+        </member>
         <member name="T:Impostor.Api.Events.IGameStartedEvent">
             <summary>
                 The game is started here and players have been initialized.
@@ -98,6 +113,16 @@
                 Called when the game is going to start.
                 When this is called, not all players are initialized properly yet.
                 If you want to get correct player states, use <see cref="T:Impostor.Api.Events.IGameStartedEvent" />.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Events.Meeting.IMeetingEndedEvent.Exiled">
+            <summary>
+                Gets the exiled player.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Events.Meeting.IMeetingEndedEvent.IsTie">
+            <summary>
+                Gets a value indicating whether meeting result is a tie.
             </summary>
         </member>
         <member name="P:Impostor.Api.Events.Player.IPlayerChatEvent.Message">
@@ -166,6 +191,16 @@
                 Gets the vent player moved to.
             </summary>
         </member>
+        <member name="P:Impostor.Api.Events.Player.IPlayerVotedEvent.VotedFor">
+            <summary>
+                Gets the player he voted for.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Events.Player.IPlayerVotedEvent.VoteType">
+            <summary>
+                Gets the Vote type.
+            </summary>
+        </member>
         <member name="P:Impostor.Api.Events.IEventCancelable.IsCancelled">
             <summary>
                 Gets or sets a value indicating whether the event was cancelled.
@@ -194,6 +229,11 @@
             <param name="event">The event argument.</param>
             <typeparam name="TEvent">Type of the event.</typeparam>
             <returns>A <see cref="T:System.Threading.Tasks.ValueTask" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Impostor.Api.Events.MultiDisposable">
+            <summary>
+                Disposes multiple <see cref="T:System.IDisposable" />.
+            </summary>
         </member>
         <member name="M:Impostor.Api.DictionaryExtensions.AsReadOnly``2(System.Collections.Generic.IDictionary{``0,``1})">
             <summary>Returns a read-only <see cref="T:System.Collections.ObjectModel.ReadOnlyDictionary`2" /> wrapper for the dictionary.</summary>
@@ -319,6 +359,25 @@
             </summary>
             <param name="writer">Message to send.</param>
             <param name="id">ID of the client.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.ValueTask" /> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Impostor.Api.Games.IGame.StartRpc(System.UInt32,Impostor.Api.Net.Inner.RpcCalls,System.Nullable{System.Int32},Impostor.Api.Net.Messages.MessageType)">
+            <summary>
+                Creates a MessageWriter with GameData header.
+            </summary>
+            <remarks>Use with caution, recommended only for advanced developers.</remarks>
+            <param name="targetNetId">Net id of the InnerNetObject.</param>
+            <param name="callId">Rpc id of the message.</param>
+            <param name="targetClientId">Client id of GameDataTo's target.</param>
+            <param name="type">Message type of the message.</param>
+            <returns>A <see cref="T:Impostor.Api.Net.Messages.IMessageWriter" /> that you can fill with rpc data and send using <see cref="M:Impostor.Api.Games.IGame.FinishRpcAsync(Impostor.Api.Net.Messages.IMessageWriter,System.Nullable{System.Int32})"/>.</returns>
+        </member>
+        <member name="M:Impostor.Api.Games.IGame.FinishRpcAsync(Impostor.Api.Net.Messages.IMessageWriter,System.Nullable{System.Int32})">
+            <summary>
+            Finishes rpc message and sends it to the target.
+            </summary>
+            <param name="writer">Message writer of the rpc.</param>
+            <param name="targetClientId">Id of the receiving client.</param>
             <returns>A <see cref="T:System.Threading.Tasks.ValueTask" /> representing the asynchronous operation.</returns>
         </member>
         <member name="M:Impostor.Api.Games.Managers.IGameManager.CreateAsync(Impostor.Api.Innersloth.GameOptionsData)">
@@ -482,6 +541,13 @@
                 Top decontam on Polus
             </summary>
         </member>
+        <member name="M:Impostor.Api.Net.Custom.ICustomMessageManager`1.Register(`0)">
+            <summary>
+                Register a custom message.
+            </summary>
+            <param name="message"><typeparamref name="T"/> message.</param>
+            <returns>Disposable that unregisters the message.</returns>
+        </member>
         <member name="T:Impostor.Api.Net.IClient">
             <summary>
                 Represents a connected game client.
@@ -635,6 +701,52 @@
             <param name="position">The target position.</param>
             <returns>Task that must be awaited.</returns>
         </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.TargetPlayer">
+            <summary>
+                Gets the player info of this vote state.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.IsDead">
+            <summary>
+                Gets a value indicating whether the player is a dead.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.DidReport">
+            <summary>
+                Gets a value indicating whether the player started this meeting.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.DidVote">
+            <summary>
+                Gets a value indicating whether the player voted.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.VoteType">
+            <summary>
+                Gets the vote type.
+            </summary>
+            <remarks>
+                Null when <see cref="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.DidVote" /> is false.
+            </remarks>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.VotedFor">
+            <summary>
+                Gets the player voted for.
+            </summary>
+            <remarks>
+                Null when <see cref="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.IPlayerVoteArea.VoteType" /> isn't <see cref="F:Impostor.Api.Events.Player.VoteType.Player"/>.
+            </remarks>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.PlayerStates">
+            <summary>
+                Gets states of players taking part in this meeting.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.Inner.Objects.IInnerMeetingHud.Reporter">
+            <summary>
+                Gets the player that started the meeting.
+            </summary>
+        </member>
         <member name="P:Impostor.Api.Net.Inner.Objects.IInnerPlayerControl.PlayerId">
             <summary>
                 Gets the <see cref="P:Impostor.Api.Net.Inner.Objects.IInnerPlayerControl.PlayerId" /> assigned by the client of the host of the game.
@@ -775,6 +887,12 @@
                 Gets the reason why the player is dead in the current game.
             </summary>
         </member>
+        <member name="M:Impostor.Api.Net.Inner.Objects.ITaskInfo.CompleteAsync">
+            <summary>
+                Sets the task as complete.
+            </summary>
+            <returns>Task that must be awaited.</returns>
+        </member>
         <member name="M:Impostor.Api.Net.Messages.C2S.Message00HostGameC2S.Deserialize(Impostor.Api.Net.Messages.IMessageReader,Impostor.Api.Innersloth.QuickChatModes@)">
             <summary>
                 Deserialize a packet.
@@ -812,6 +930,13 @@
             <summary>
                 Base message writer.
             </summary>
+        </member>
+        <member name="M:Impostor.Api.Net.Messages.IMessageWriter.ToByteArray(System.Boolean)">
+            <summary>
+                Copies the contents of this writer into a new array.
+            </summary>
+            <param name="includeHeader">Whether to include message header in the array.</param>
+            <returns>An array containing the data in the current writer.</returns>
         </member>
         <member name="M:Impostor.Api.Net.Messages.IMessageWriter.Write(System.Boolean)">
             <summary>
