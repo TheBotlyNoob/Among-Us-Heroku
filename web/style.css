@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Mono:regular,bold&subset=Latin");
+@import url("https://jj.is-a.dev/fonts/Operator/index.min.css");
 
-#tunnel {
-    display: flex;
-    justify-content: center;
-}
 
 #tunnel-url {
     text-align: center;
+    width: 100%;
 }
 
 a {
@@ -21,7 +18,7 @@ html {
     background-color: black;
     background-size: 100% 100%;
     color: white;
-    font-family: "Ubuntu Mono","times new roman",times,roman,serif;
+    font-family: "Operator Mono SSm Lig","times new roman",times,roman,serif;
     text-shadow: 0 0 5px #C8C8C8;
 }
 
