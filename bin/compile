@@ -48,7 +48,7 @@ echo "-----> Installing Dependencies"
 mkdir -p "$CACHE_DIR/apt/cache/archives/partial"
 mkdir -p "$CACHE_DIR/apt/state/lists/partial"
 apt-get -o debug::nolocking=true -o dir::cache=$CACHE_DIR/apt/cache -o dir::state=$CACHE_DIR/apt/state update -y | indent
-apt-get -o debug::nolocking=true -o dir::cache=$CACHE_DIR/apt/cache -o dir::state=$CACHE_DIR/apt/state -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -d install --reinstall libpci-dev nodejs npm | indent
+apt-get -o debug::nolocking=true -o dir::cache=$CACHE_DIR/apt/cache -o dir::state=$CACHE_DIR/apt/state -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -d install --reinstall libpci-dev lib32z1 nodejs npm | indent
 
 #Set environment variables for every startup
 mkdir -p $BUILD_DIR/.profile.d
