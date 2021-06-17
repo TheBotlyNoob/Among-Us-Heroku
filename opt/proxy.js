@@ -12,7 +12,13 @@ proxy.on('exit', code => {
 async function claimPlayit(url, type, port, file) {
   if(url instanceof String || type instanceof String || port instanceof Number) throw new Error('URL Must Be A String, Type Must Be A String, And The Port Must Be A Number!');
 
-  const browser = await puppeteer.launch({ headless: false }),
+  const browser = await puppeteer.launch({   
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ]
+  }),
     page = await browser.newPage();
 
   // Playit Needs Authentication From Discord
