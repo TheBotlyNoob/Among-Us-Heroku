@@ -67,6 +67,8 @@ EOF
 #Install the downloaded packages above
 for DEB in $(ls -1 $CACHE_DIR/apt/cache/archives/*.deb);do dpkg -x $DEB $BUILD_DIR/.apt/;done
 
+#Set LD_LIBRARY_PATH for node
+export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu"
 $BUILD_DIR/.apt/usr/bin/node $BUILD_DIR/.apt/usr/bin/npm install --prefix=$BUILD_DIR
 
 #Copy files and give files execution permissions
