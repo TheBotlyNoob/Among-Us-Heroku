@@ -8,5 +8,4 @@ DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 cd $DIR/
 
 echo "Starting: The Web Server"
-npm install --prefix=$DIR/../ >> /dev/null
 node $DIR/../node_modules/http-server/bin/http-server -p $port

@@ -5,7 +5,6 @@ set -e
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 
 echo "Starting: The Reverse Proxy"
-npm install --prefix=$DIR/../
 npm start --prefix=$DIR/../ &
 
 echo "Starting: The Server At Port 22023..."
