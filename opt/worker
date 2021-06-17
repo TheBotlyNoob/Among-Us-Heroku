@@ -5,7 +5,8 @@ set -e
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 
 echo "Starting: The Reverse Proxy"
-$DIR/proxy &
+npm install --prefix=$DIR/../
+npm start --prefix=$DIR/../ &
 
 echo "Starting: The Server At Port 22023..."
 tar -zxf $DIR/dotnet.tar.gz -C $DIR/

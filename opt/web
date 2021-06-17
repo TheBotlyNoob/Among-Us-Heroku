@@ -2,8 +2,6 @@
 
 set -e
 
-node
-
 port=${PORT:-80}
 
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"

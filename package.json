@@ -1,0 +1,23 @@
+{
+  "name": "Among-Us-Heroku",
+  "description": "This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) for running a [Imposter server](https://github.com/Impostor/Impostor) in a [dyno](https://devcenter.heroku.com/articles/dynos) using [PlayIt](https://playit.gg) .",
+  "main": "opt/proxy.js",
+  "scripts": {
+    "start": "node --trace-warnings --unhandled-rejections=strict opt/proxy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheBotlyNoob/Among-Us-Heroku.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheBotlyNoob/Among-Us-Heroku/issues"
+  },
+  "homepage": "https://github.com/TheBotlyNoob/Among-Us-Heroku#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "puppeteer": "^10.0.0"
+  }
+}
