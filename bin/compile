@@ -50,7 +50,7 @@ mkdir -p "$CACHE_DIR/apt/state/lists/partial"
 apt-get -o debug::nolocking=true -o dir::cache=$CACHE_DIR/apt/cache -o dir::state=$CACHE_DIR/apt/state update -y | indent
 apt-get -o debug::nolocking=true -o dir::cache=$CACHE_DIR/apt/cache -o dir::state=$CACHE_DIR/apt/state -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -d install --reinstall libpci-dev libnss3-dev libgdk-pixbuf2.0-dev libgtk-3-dev libxss-dev libgbm-dev libasound2 nodejs npm | indent
 
-npm install --prefix=$BUILD_DIR
+$BUILD_DIR/.apt/usr/bin/npm install --prefix=$BUILD_DIR
 
 #Set environment variables for every startup
 mkdir -p $BUILD_DIR/.profile.d
