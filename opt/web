@@ -5,6 +5,7 @@ set -e
 port=${PORT:-8080}
 
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+cd $DIR/
 
 echo "Starting: The Web Server"
 npm install --prefix=$DIR/../
