@@ -2,11 +2,10 @@
 
 set -e
 
-port=${PORT:-80}
+port=${PORT:-8080}
 
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 
 echo "Starting: The Web Server"
-tar -zxf $DIR/php.tar.gz -C $DIR/
-chmod +x $DIR/php/bin/php
-php -S 0.0.0.0:$PORT -t $DIR > /dev/null
+npm install --prefix=$DIR/../
+node ../node_modules/http-server/bin/http-server -p $port

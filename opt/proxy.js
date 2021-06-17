@@ -1,14 +1,15 @@
 const spawn = require('child_process').spawn,
-  puppeteer = require('puppeteer');
+  puppeteer = require('puppeteer'),
+  { writeFileSync } = require('fs');
 
 const proxy = spawn(`proxy`, { cwd: __dirname });
 
-proxy.stderr.on('data', data => data.toString().match(/\bhttps?:\/\/[0-9a-z\/]*/gi) ? claimPlayit(data.toString().match(/https:\/\/[0-9a-z\.\/]*/gi)[0], 'UDP', 22023) : '')
+proxy.stderr.on('data', data => data.toString().match(/\bhttps?:\/\/[0-9a-z\/]*/gi) ? claimPlayit(data.toString().match(/https:\/\/[0-9a-z\.\/]*/gi)[0], 'UDP', 22023, `${__dirname}/../bin/url`): '')
 proxy.on('exit', code => {
   console.log(`Proxy Exited With Code: ${code}`);
 });
 
-async function claimPlayit(url, type, port) {
+async function claimPlayit(url, type, port, file) {
   if(url instanceof String || type instanceof String || port instanceof Number) throw new Error('URL Must Be A String, Type Must Be A String, And The Port Must Be A Number!');
 
   const browser = await puppeteer.launch({ headless: false }),
@@ -29,6 +30,8 @@ async function claimPlayit(url, type, port) {
   // Now That We Have Authenticated, Make The Tunnel
   await page.goto(url, { waituntil: 'networkidle0' });
   await page.goto(`https://playit.gg/manage/set/custom-${type.toLowerCase()}`);
+  
+  //writeFileSync(file, playitURL);
 }
 
 
