@@ -69,13 +69,13 @@ for DEB in $(ls -1 $CACHE_DIR/apt/cache/archives/*.deb);do dpkg -x $DEB $BUILD_D
 
 #Set LD_LIBRARY_PATH for node
 export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu"
+cp $BP_DIR/../package.json $BUILD_DIR/
 $BUILD_DIR/.apt/usr/bin/node $BUILD_DIR/.apt/usr/bin/npm install --prefix=$BUILD_DIR
 
 #Copy files and give files execution permissions
 cp -R $OPT_DIR/. $BUILD_DIR/bin/
 cp -R $BP_DIR/../web/. $BUILD_DIR/bin/
 cp $BP_DIR/../Procfile $BUILD_DIR/
-cp $BP_DIR/../package.json $BUILD_DIR/
 
 chmod +x $BUILD_DIR/bin/web
 chmod +x $BUILD_DIR/bin/worker
