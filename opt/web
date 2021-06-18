@@ -4,8 +4,8 @@ set -e
 
 port=${PORT:-8080}
 
-DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+DIR='$(cd '$(dirname '$(readlink -f '$0')')' && pwd)'
 cd $DIR/
 
-echo "Starting: The Web Server"
+echo 'Starting: The Web Server'
 node $DIR/../node_modules/http-server/bin/http-server -p $port

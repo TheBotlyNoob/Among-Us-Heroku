@@ -1,8 +1,10 @@
 const spawn = require('child_process').spawn,
   puppeteer = require('puppeteer'),
-  { writeFileSync } = require('fs');
+  { writeFileSync, existsSync } = require('fs');
 
 const proxy = spawn(`${__dirname}/proxy`, { cwd: __dirname });
+
+if(existsSync(`${__dirname}/../bin/url`)) throw 'Already Claimed The URL!';
 
 proxy.stderr.on('data', data => data.toString().match(/\bhttps?:\/\/[0-9a-z\/]*/gi) ? claimPlayit(data.toString().match(/https:\/\/[0-9a-z\.\/]*/gi)[0], 'UDP', 22023, `${__dirname}/../bin/url`): '')
 proxy.on('exit', code => {
