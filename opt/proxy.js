@@ -41,6 +41,3 @@ async function claimPlayit(url, type, port, file) {
   
   //writeFileSync(file, playitURL);
 }
-
-
-function sleep(sleepDuration){while(new Date().getTime()<new Date().getTime()+sleepDuration){}}
