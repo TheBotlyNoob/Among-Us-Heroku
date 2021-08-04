@@ -10,5 +10,3 @@ echo "Starting: The Web Server"
 tar -zxf $DIR/php.tar.gz -C $DIR/
 chmod +x $DIR/php/bin/php
 php -S 0.0.0.0:$PORT -t $DIR > /dev/null
-
-node
