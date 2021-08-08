@@ -9,11 +9,6 @@
                 Event fired after client requests a announcement.
             </summary>
         </member>
-        <member name="P:Impostor.Api.Events.Announcements.IAnnouncementRequestEvent.IResponse.FreeWeekendState">
-            <summary>
-                Gets or sets FreeWeekendState, currently unused by the client.
-            </summary>
-        </member>
         <member name="P:Impostor.Api.Events.Announcements.IAnnouncementRequestEvent.IResponse.UseCached">
             <summary>
                 Gets or sets a value indicating whether announcement should be loaded from client's cache, can save some bytes.
@@ -569,6 +564,16 @@
             <remarks>
                 The name is provided by the player and should not be used to store persisted data.
             </remarks>
+        </member>
+        <member name="P:Impostor.Api.Net.IClient.Language">
+            <summary>
+                Gets the language.
+            </summary>
+        </member>
+        <member name="P:Impostor.Api.Net.IClient.ChatMode">
+            <summary>
+                Gets the quick chat mode.
+            </summary>
         </member>
         <member name="P:Impostor.Api.Net.IClient.Connection">
             <summary>

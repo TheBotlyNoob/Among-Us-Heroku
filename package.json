@@ -19,6 +19,7 @@
   "dependencies": {
     "child_process": "^1.0.2",
     "http-server": "^0.12.3",
+    "playit.gg": "^0.0.4",
     "puppeteer": "^10.0.0"
   }
 }
