@@ -1,10 +1,7 @@
 const fs = require('fs');
 const PlayIt = require('playit.gg');
 (async () => {
-  const playit = await new PlayIt({
-    email: 'auinheroku@gmail.com',
-    password: 'auinheroku123!'
-  });
+  const playit = await new PlayIt();
 
   fs.writeFileSync(
     `${__dirname}/url`,
