@@ -1,5 +1,6 @@
 const fs = require('fs');
 const PlayIt = require('playit.gg');
+
 (async () => {
   const playit = await new PlayIt();
 
