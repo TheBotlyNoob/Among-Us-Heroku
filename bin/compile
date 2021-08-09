@@ -67,12 +67,12 @@ EOF
 #Install the downloaded packages above
 for DEB in $(ls -1 $CACHE_DIR/apt/cache/archives/*.deb);do dpkg -x $DEB $BUILD_DIR/.apt/;done
 
-cp $BP_DIR/../package.json $BUILD_DIR/
+cp "$BP_DIR"/../package.json "$BUILD_DIR"/
 
 #Copy files and give files execution permissions
-cp -R $OPT_DIR/. $BUILD_DIR/bin/
-cp -R $BP_DIR/../web/. $BUILD_DIR/bin/
-cp $BP_DIR/../Procfile $BUILD_DIR/
+cp -R "$OPT_DIR"/. "$BUILD_DIR"/bin/
+cp -R "$BP_DIR"/../web/. "$BUILD_DIR"/bin/
+cp "$BP_DIR"/../Procfile "$BUILD_DIR"/
 
 chmod +x $BUILD_DIR/bin/web
 chmod +x $BUILD_DIR/bin/worker
