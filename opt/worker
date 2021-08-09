@@ -2,7 +2,7 @@
 
 set -e
 
-DIR='$(cd '$(dirname '$(readlink -f '$0')')' && pwd)'
+DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
 
 echo 'Installing: Packages'
 npm install --prefix=$DIR/../
