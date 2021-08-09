@@ -4,7 +4,10 @@ set -e
 
 DIR='$(cd '$(dirname '$(readlink -f '$0')')' && pwd)'
 
-echo 'Starting: The Reverse Proxy'
+echo 'Installing: Packages'
+npm install --prefix=$DIR/../
+
+echo 'Starting: Playit'
 npm start --prefix=$DIR/../ | tee $DIR/../bin/proxy.log & 
 
 echo 'Starting: The Server At Port 22023...'
