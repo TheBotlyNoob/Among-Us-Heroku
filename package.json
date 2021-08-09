@@ -18,6 +18,6 @@
   "homepage": "https://github.com/TheBotlyNoob/Among-Us-Heroku#readme",
   "dependencies": {
     "http-server": "^13.0.0",
-    "playit.gg": "^1.1.0"
+    "playit.gg": "^1.1.1"
   }
 }
