@@ -76,4 +76,3 @@ cp "$BP_DIR"/../Procfile "$BUILD_DIR"/
 
 chmod +x $BUILD_DIR/bin/web
 chmod +x $BUILD_DIR/bin/worker
-chmod +x $BUILD_DIR/bin/proxy
