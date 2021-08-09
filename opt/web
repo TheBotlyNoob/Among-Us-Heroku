@@ -7,5 +7,7 @@ port=${PORT:-8080}
 DIR='$(cd '$(dirname '$(readlink -f '$0')')' && pwd)'
 cd $DIR/
 
+echo 'Installing: Packages'
+npm install --prefix=$DIR/../
 echo 'Starting: The Web Server'
 node $DIR/../node_modules/http-server/bin/http-server -p $port
