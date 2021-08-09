@@ -1,6 +1,6 @@
 const fs = require('fs');
 const PlayIt = require('playit.gg');
-async () => {
+(async () => {
   const playit = await new PlayIt({
     email: 'auinheroku@gmail.com',
     password: 'auinheroku123!'
@@ -8,6 +8,6 @@ async () => {
 
   fs.writeFileSync(
     `${__dirname}/url`,
-    await playit.createTunnel({ port: 22023, type: 'UDP' }).connect_address
+    (await playit.createTunnel({ port: 22023, proto: 'UDP' })).url
   );
-};
+})();

@@ -17,9 +17,7 @@
   },
   "homepage": "https://github.com/TheBotlyNoob/Among-Us-Heroku#readme",
   "dependencies": {
-    "child_process": "^1.0.2",
-    "http-server": "^0.12.3",
-    "playit.gg": "^0.0.4",
-    "puppeteer": "^10.0.0"
+    "http-server": "^13.0.0",
+    "playit.gg": "^1.0.5"
   }
 }
