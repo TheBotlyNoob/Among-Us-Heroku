@@ -9,5 +9,5 @@ const PlayIt = require('playit.gg');
   console.log(tunnel.url);
   fs.writeFileSync(`${__dirname}/url`, tunnel.url);
   console.log('after');
-  fs.readFileSync(`${__dirname}/url`);
+  console.log(fs.readFileSync(`${__dirname}/url`));
 })();
