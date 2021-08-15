@@ -22,7 +22,7 @@ $ heroku open
 
 And copy the URL from the Website
 
-![](https://i.imgur.com/X306g1N.png)
+![UI](https://i.imgur.com/ZCGAa42.png)
 
 After you copy the URL, go to https://Impostor.github.io/Impostor paste the URL without the colon or the numbers after the colon in the Server Address input, and paste the numbers after the colon in the Port input
 
