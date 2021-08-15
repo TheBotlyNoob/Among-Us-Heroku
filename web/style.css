@@ -1,28 +1,31 @@
-@import url("https://jj.is-a.dev/fonts/Operator/index.min.css");
+@import url('https://jj.is-a.dev/fonts/Operator/index.min.css');
 
-
-#tunnel {
-    text-align: center;
-    width: 100%;
+body,
+div {
+  text-align: center;
+  width: 100%;
 }
 
 a {
-    color: white;
+  color: white;
 }
 
 html {
-    background: url("https://wallpapercave.com/wp/wp7445961.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-color: black;
-    background-size: 100% 100%;
-    color: white;
-    font-family: "Operator Mono SSm Lig","times new roman",times,roman,serif;
-    text-shadow: 0 0 5px #C8C8C8;
+  background: url('https://wallpapercave.com/wp/wp7445961.jpg') no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: black;
+  background-size: 100% 100%;
+  color: white;
+  font-family: 'Operator Mono SSm Lig', 'times new roman', times, roman, serif;
+  text-shadow: 0 0 5px #c8c8c8;
 }
 
-.github, .github:hover, .github:active {
+.github,
+.github:hover,
+.github:active {
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -42,8 +45,9 @@ html {
   height: auto;
 }
 
-.github img:hover, .github:hover > img {
-	animation: rotation 2s infinite linear;
+.github img:hover,
+.github:hover > img {
+  animation: rotation 2s infinite linear;
 }
 
 @keyframes rotation {
@@ -56,6 +60,6 @@ html {
 }
 
 .github:hover {
-	cursor: pointer !important;
-	font-size: 13.5px !important;
+  cursor: pointer !important;
+  font-size: 13.5px !important;
 }
