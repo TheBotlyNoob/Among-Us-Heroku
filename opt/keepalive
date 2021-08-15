@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while :; do
+   ping -c 1 -w 3 127.0.0.1
+   sleep 1
+done

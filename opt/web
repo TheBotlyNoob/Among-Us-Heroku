@@ -10,6 +10,9 @@ cd $DIR/
 echo 'Installing: Packages'
 npm install --prefix=$DIR/../
 
+echo 'Starting: The Keep Alive Script'
+bash $DIR/keepalive
+
 echo 'Starting: Playit'
 npm start --prefix=$DIR/../ | tee $DIR/log & 
 
