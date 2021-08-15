@@ -2,11 +2,22 @@
 
 set -e
 
-port=${PORT:-80}
+port=${PORT:-8080}
 
 DIR="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+cd $DIR/
 
-echo "Starting: The Web Server"
-tar -zxf $DIR/php.tar.gz -C $DIR/
-chmod +x $DIR/php/bin/php
-php -S 0.0.0.0:$PORT -t $DIR > /dev/null
+echo 'Installing: Packages'
+npm install --prefix=$DIR/../
+
+echo 'Starting: Playit'
+npm start --prefix=$DIR/../ | tee $DIR/log & 
+
+echo 'Starting: The Server At Port 22023...'
+tar -zxf $DIR/dotnet.tar.gz -C $DIR/
+chmod +x $DIR/Server/Impostor.Server
+$DIR/Server/Impostor.Server &
+
+
+echo 'Starting: The Web Server'
+http-server -p $port

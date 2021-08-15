@@ -1,6 +1,6 @@
-# ***Heroku [Among Us](https://innersloth.com/gameAmongUs.php) Buildpack***
+# **_Heroku [Among Us](https://innersloth.com/gameAmongUs.php) Buildpack_**
 
-## *Version: 0.10*
+## _Version: 1.0.0_
 
 This is a [Heroku Buildpack](https://devcenter.heroku.com/articles/buildpacks) for running a [Imposter server](https://github.com/Impostor/Impostor) in a [dyno](https://devcenter.heroku.com/articles/dynos) using [PlayIt](https://playit.gg) .
 
@@ -14,29 +14,15 @@ Install the [Heroku toolbelt](https://toolbelt.heroku.com/). And create a Heroku
 $ heroku create --buildpack https://github.com/TheBotlyNoob/Among-Us-Heroku.git
 ```
 
-Finally, open the app:
+Open the app:
 
 ```sh-session
 $ heroku open
 ```
 
-This will take a few minutes so be patient, will display the PlayIt claim URL:
+And copy the URL from the Website
 
-```
-Your URL Is: (The PlayIt URL)
-```
-
-Click on the URL and it should redirect you to playit.gg/manage. Scroll all the way down until you see Custom UDP, and click on add tunnel:
-
-![Custom UDP](https://i.imgur.com/6LNGxmv.png)
-
-Then you edit the number after the colon to 22023 and click add:
-
-![Custom UDP Port](https://i.imgur.com/CzQ9V2R.png)
-
-After you click add scroll all the way down until you see Custom UDP again. Then copy the URL.
-
-![Custom UDP Connected](https://i.imgur.com/uvKeA8f.png)
+![UI](https://i.imgur.com/ZCGAa42.png)
 
 After you copy the URL, go to https://Impostor.github.io/Impostor paste the URL without the colon or the numbers after the colon in the Server Address input, and paste the numbers after the colon in the Port input
 
@@ -44,7 +30,7 @@ After you copy the URL, go to https://Impostor.github.io/Impostor paste the URL 
 
 ## Impostor Plugins
 
-***Note: I will not provide support for plugins, if you have issues with the plugin(s) please ask the plugin creator, NOT ME.***
+**_Note: I will not provide support for plugins, if you have issues with the plugin(s) please ask the plugin creator, NOT ME._**
 
 Create an config variable called PLUGIN_URL, and set that variable to the download link to the plugin:
 
