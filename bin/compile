@@ -75,4 +75,3 @@ cp -R $BP_DIR/../web/. $BUILD_DIR/bin/
 cp $BP_DIR/../Procfile $BUILD_DIR/
 
 chmod +x $BUILD_DIR/bin/web
-chmod +x $BUILD_DIR/bin/worker
